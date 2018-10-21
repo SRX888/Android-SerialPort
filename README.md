@@ -1,5 +1,3 @@
-# Android-SerialPort-API
-Google官方的Android串口通信Demo，修改成Android Studio项目
 
 
 **修改`su`路径**
@@ -9,4 +7,10 @@ Google官方的Android串口通信Demo，修改成Android Studio项目
 // 可通过此方法修改
 SerialPort.setSuPath("/system/xbin/su");
 ```
-"# Android-SerialPort" 
+"# Android-SerialPort"
+
+
+```java
+this app is modify for A64 android M ,in a64 devices can use ttyS1 
+```
+
