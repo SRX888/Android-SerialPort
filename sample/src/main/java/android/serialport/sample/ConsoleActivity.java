@@ -16,17 +16,19 @@
 
 package android.serialport.sample;
 
-import java.io.IOException;
-
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
+import java.io.IOException;
+
 public class ConsoleActivity extends SerialPortActivity {
 
     EditText mReception;
+    private static final String TAG = "srx";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class ConsoleActivity extends SerialPortActivity {
                     mOutputStream.write('\n');
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Log.i(TAG, "onEditorAction: e="+e);
                 }
                 return false;
             }
@@ -58,6 +61,7 @@ public class ConsoleActivity extends SerialPortActivity {
 
     @Override
     protected void onDataReceived(final byte[] buffer, final int size) {
+        Log.i(TAG, "onDataReceived: "+ new String(buffer));
         runOnUiThread(new Runnable() {
             public void run() {
                 if (mReception != null) {

@@ -16,10 +16,11 @@
 
 package android.serialport.sample;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import java.io.IOException;
 import java.util.Arrays;
-
-import android.os.Bundle;
 
 public class Sending01010101Activity extends SerialPortActivity {
 
@@ -50,6 +51,7 @@ public class Sending01010101Activity extends SerialPortActivity {
                 try {
                     if (mOutputStream != null) {
                         mOutputStream.write(mBuffer);
+                        Log.i("srx", "run: mOutputStreammOutputStream");
                     } else {
                         return;
                     }

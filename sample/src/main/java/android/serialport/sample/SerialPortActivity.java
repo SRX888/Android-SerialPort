@@ -22,6 +22,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.serialport.SerialPort;
+import android.util.Log;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -47,6 +49,7 @@ public abstract class SerialPortActivity extends Activity {
                     if (mInputStream == null) return;
                     size = mInputStream.read(buffer);
                     if (size > 0) {
+                        Log.i("srx", "run:  Serilport  52 ");
                         onDataReceived(buffer, size);
                     }
                 } catch (IOException e) {
